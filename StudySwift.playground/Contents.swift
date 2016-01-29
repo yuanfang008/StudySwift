@@ -220,8 +220,6 @@ girl.description = "Guo Chen Guang"
 print("girl.description = \(girl.description)")
 
 
-//Test
-
 
 
 
