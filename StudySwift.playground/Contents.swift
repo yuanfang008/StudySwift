@@ -349,7 +349,7 @@ print(chips.chipType, chips.foodName)
 class Apartment {
     //声明存储属性
     var number:Int
-    //声明一个用户属性(并不是每个公寓都有人住)
+    
     //weak用来解决循环引用, 只能修饰可选类型的属性
     weak var person:Person?
     //定制构造方法
@@ -362,6 +362,24 @@ class Apartment {
     }
 }
 
+class Person {
+    var name:String
+    
+    var apartment:Apartment?
+    init (name:String) {
+        self.name = name
+    }
+    deinit {
+        print("Go Die")
+    }
+}
+
+var person:Person? = Person(name: "Dan Dan")
+var apatment:Apartment? = Apartment(number: 1024)
+person?.apartment = apatment
+apatment?.person = person
+person = nil
+apatment = nil
 
 
 
