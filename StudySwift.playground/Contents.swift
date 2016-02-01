@@ -9,7 +9,159 @@ var str = "Hello, playground!"
 print(str)
 
 
-// MARK: function
+// MARK: Basic
+
+let constValue: Int = 31
+
+var varableValue: String = "xiaofang"
+
+var 袁方 = "搬砖的"
+
+var red, green, blue: Double
+
+typealias yuanType = Int
+var aliasValue: yuanType = 23
+print("aliasValue = \(aliasValue)")
+
+var boolValue: Bool = true
+if boolValue {
+    print("这是真的")
+}
+
+var httpCodeTuples1: (Int, String) = (200, "successful")
+print(httpCodeTuples1.0)
+
+var httpCodeTuples2 = (codeValue:404, descritpion:"failed")
+print(httpCodeTuples2)
+
+//在Swift中，nil不是指针——它是一个确定的值，用来表示值缺失。任何类型的可选状态都可以被设置为nil，不只是对象类型。
+var optionalString: String?
+
+var optionalValue: Int? = 404
+optionalValue = nil
+optionalValue = 200
+
+if optionalValue != nil {
+    print("optionalValue has an integer value of \(optionalValue!).")
+}
+
+let possibleNumber = "123"
+if var actualValue = Int(possibleNumber) {
+    print("\'\(possibleNumber)\' has an integer value of \(actualValue)")
+    actualValue = 321
+} else {
+    print("\'\(possibleNumber)\' could not be converted to an integer")
+}
+
+let possibleString: String? = "An optional string."
+let forcedString: String = possibleString!
+
+let assumedString: String! = "An implicitly unwrapped optional string."
+let implicitString: String = assumedString
+
+
+//MARK: Operators
+
+"hello, " + "world"
+
+for number in 1..<10 {
+    print(number)
+}
+
+var optionalNumber: Int? = 666
+var nilCoalescingNumber = optionalNumber ?? 222
+print(nilCoalescingNumber)
+
+
+//MARK: String
+
+//Strings Are Value Types
+var swiftString1 = "goodgood"
+var swiftString2 = swiftString1
+swiftString1 += "study"
+print(swiftString2)
+
+var cutString = "1234567890"
+let index = cutString.startIndex.advancedBy(3)
+let index2 = cutString.endIndex.advancedBy(-2)
+var range = Range(start: index, end: index2)
+var string1 = cutString.substringFromIndex(index)
+var string2 = cutString.substringToIndex(index2)
+var string3 = cutString.substringWithRange(range)
+
+var OCCutStr = NSMutableString(string: "1234567890")
+var OCCutString = OCCutStr.substringToIndex(4)
+
+
+//MARK: Collection Types
+//Collection Types Are Value Types
+var swiftArray = ["yuan", 5, 6.7]
+swiftArray += ["yuanfang"]
+swiftArray.insert("biubiu", atIndex: 0)
+swiftArray.removeAtIndex(0)
+swiftArray[0...1] = ["yuan", 666, 998]
+for item in swiftArray {
+    print(item)
+}
+for (index, value) in swiftArray.enumerate() {
+    print("index = \(index), value = \(value)")
+}
+
+var swiftArray1: [String] = [String](count: 8, repeatedValue: "666")
+var swiftArray2: [AnyObject] = [AnyObject]()
+swiftArray2 += ["QAQ", 99]
+//String是这个数组中唯一允许存在的数据类型。(推荐这种写法)
+var swiftArray3: Array<String> = Array()
+swiftArray3 += ["良辰", "美景"]
+
+var dictionary = ["boy":"yuanfang", "hometown":"luohe", "age":24]
+dictionary["height"] = 180
+print(dictionary)
+dictionary.removeValueForKey("age")
+dictionary["boy"] = "xiaoyuan"
+for item in dictionary{
+    print(item)
+}
+for (key, value) in dictionary {
+    print("key = \(key), value = \(value)")
+}
+
+
+//MARK: Control Flow
+for _ in 1...10 {
+    print("123")
+}
+
+var i = 0
+while i < 10 {
+    print(i)
+    i++
+}
+
+
+//类似do-while
+repeat {
+    print("我能行")
+} while false
+
+var switchNumber = 2
+switch switchNumber {
+case 0, 1, 2, 4:
+    print("0, 1, 2, 4")
+    fallthrough
+case 10...30:
+    print("宝宝心里苦啊")
+    fallthrough
+case 31:
+    print("吓死宝宝了")
+case 58:
+    break
+default:
+    print("others")
+}
+
+
+// MARK: Function
 
 func sayHello(personName: String) -> String {
     return "Hello, " + personName + "!"
