@@ -94,12 +94,8 @@ enum CompassPoint {
     case East
     case West
 }
-
 var directionToHead = CompassPoint.West
-
 directionToHead = .East
-
-//强制穷举,确保枚举成员不会被意外遗漏
 switch directionToHead {
 case .North:
     print("Lots of planets have a north")
@@ -111,11 +107,9 @@ case .West:
     print("Where the skies are blue")
 }
 
-
-enum Planet:Int {
+enum Planet: Int {
     case Mercury, Venus = 2, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
 }
-
 let somePlanet = Planet.Mars
 switch somePlanet {
 case .Earth:
@@ -124,9 +118,7 @@ default:
     print("Not a safe place for humans")
 }
 
-
 var planetValue = Planet.Mercury.rawValue
-
 planetValue = Planet.Venus.rawValue
 planetValue = Planet.Earth.rawValue
 
