@@ -125,22 +125,21 @@ planetValue = Planet.Earth.rawValue
 
 // MARK: Classes and Structures
 
-//结构体和枚举是值类型
-//类是引用类型
+// 结构体和枚举是值类型
 struct ResolutionStructures {
     var width = 0
     var height = 0
 }
+let memberwiseInitializersForStructureTypes = ResolutionStructures(width: 100, height: 99)
 
+// 类是引用类型
 class VideoModeClasses {
     var resolution = ResolutionStructures()
     var interlaced = false
     var frameRate = 0.0
     var name: String?
 }
-
-
-let memberwiseInitializersForStructureTypes = ResolutionStructures(width: 100, height: 99)
+let someVideoMode = VideoModeClasses()
 
 
 // MARK: Properties
