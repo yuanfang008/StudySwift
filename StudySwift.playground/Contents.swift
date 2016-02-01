@@ -5,7 +5,7 @@ import UIKit
 
 // MARK: hello swift
 
-var str = "Hello, playground"
+var str = "Hello, playground!"
 print(str)
 
 

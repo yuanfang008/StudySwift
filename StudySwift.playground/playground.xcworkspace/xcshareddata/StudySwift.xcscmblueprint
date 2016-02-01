@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C6F69FB260B889EF32C86908AD7420F9A4E960BE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "79eed5c9-5b9a-9040-89fe-5b3eb236a0c0++1177" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C6F69FB260B889EF32C86908AD7420F9A4E960BE" : 0,
+    "79eed5c9-5b9a-9040-89fe-5b3eb236a0c0++1177" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D1DA067E-AF0A-448E-8090-E38F48490CEF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C6F69FB260B889EF32C86908AD7420F9A4E960BE" : "StudySwift\/",
+    "79eed5c9-5b9a-9040-89fe-5b3eb236a0c0++1177" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "StudySwift",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "StudySwift.playground",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.80.102\/svn\/project",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "79eed5c9-5b9a-9040-89fe-5b3eb236a0c0++1177"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yuanfang008\/StudySwift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C6F69FB260B889EF32C86908AD7420F9A4E960BE"
+    }
+  ]
+}
