@@ -198,131 +198,123 @@ benzCar.carNumber = 1234
 
 // MARK: Methods
 
-//Type Methods
-class Tree {
-    class func printName(){
-        print("gingko")
-    }
-}
-Tree.printName()
-
 struct Fruit {
-    var fruitPrice:Float = 6.6    //属性观察器
-    static var fruitName:String = "apple"{
-        willSet{
+    var fruitPrice: Float = 6.6
+
+    func printFruitPrice() {
+        print("fruitPrice = \(fruitPrice)")
+    }
+
+    static var fruitName: String = "apple" {
+        willSet {
         print("newValue = \(newValue)")
-        }didSet{
+        }
+        didSet {
             print("oldValue = \(oldValue)")
         }
     }
-    //结构体方法
-    static func printFruitName(){
+
+    static func printFruitName() {
         print("fruitName = \(fruitName)")
     }
 }
+let fruit = Fruit()
+fruit.printFruitPrice()
 Fruit.printFruitName()
 
+class Tree {
+    var height: Float = 12.5
+
+    func printTreeHeight() {
+        print("treeHeight = \(height)")
+    }
+
+    class func printName() {
+        print("gingko")
+    }
+}
+let tree = Tree()
+tree.printTreeHeight()
+Tree.printName()
+
+
 // MARK: Inheritance
-//在swift中, 没有显示的声明继承于某个类的类, 就是基类(父类, 超类)
-//Base class
+
 class Vehicle {
     var speed = 0.0
-    var description:String {
+    var description: String {
         return "speed is \(speed)"
     }
-    //实例方法
-    func printVehicle(){
+
+    func printVehicle() {
         print("这是父类的方法")
     }
 }
-
-//Subclass
 class Ferrari: Vehicle {
-    //新增加属性
-    var carType:String = "F12berlinetta"
-    //重写父类的方法
-    //override 是重写的标识
-    override func printVehicle(){
+    var carType: String = "F12berlinetta"
+
+    override func printVehicle() {
         print("Ferrari中的方法")
-        //执行一遍父类中的代码
         super.printVehicle()
     }
-    //重写计算属性
-    override var description:String {
+
+    override var description: String {
         return "My ferrari's speed is fast, speed is \(speed)"
     }
 }
-
-//创建一个ferrari实例
 let ferrariCar = Ferrari()
 ferrariCar.speed = 233.6
-
+ferrariCar.printVehicle()
 print("ferrariCar.carType = \(ferrariCar.carType)", ferrariCar.description)
 
-ferrariCar.printVehicle()
-
-/**  Swift中防止继承, 使用final关键字
-*
-*  final加到类前面, 说明整个类不能被继承
-*  final加到方法前面, 说明该方法不能被重写
-*  final加到属性前面, 说明该属性不能被重写
-*/
 
 // MARK: Initialization
+
 class Food {
-    var foodName:String
-    var foodType:String
-    var foodPrice:Float
-    //定制初始化方法
-    init(foodName:String, foodType:String, foodPrice:Float) {
+    var foodName: String
+    var foodType: String
+    var foodPrice: Float
+
+    init(foodName: String, foodType: String, foodPrice: Float) {
         self.foodName = foodName;
         self.foodType = foodType;
         self.foodPrice = foodPrice;
     }
 }
-
 var food = Food(foodName: "dumplings", foodType: "supper", foodPrice: 15.0)
 print("food.foodName = \(food.foodName)")
 
 class Chips: Food {
-    //可选类型
-    var chipType:String!
-    //重写init方法
+    var chipType: String!
+
     override init(foodName: String, foodType: String, foodPrice: Float) {
-        //1. 父类init方法先执行一遍
         super.init(foodName: foodName, foodType: foodType, foodPrice: foodPrice)
-        //2. 再完成新增属性的赋值
         chipType = "KFC"
     }
 }
-
 let chips = Chips(foodName: "薯条", foodType: "甜甜的", foodPrice: 12.5)
 print(chips.chipType, chips.foodName)
 
-//解决相互强引用引起的循环引用问题, 可以使用weak和unowned关键字来解决, 切记weak修饰可选类型, unowned修饰非可选类型
 
+// MARK: ARC
 
 class Apartment {
-    //声明存储属性
-    var number:Int
-    
-    //weak用来解决循环引用, 只能修饰可选类型的属性
-    weak var person:Person?
-    //定制构造方法
-    init (number:Int) {
+    var number: Int
+    weak var person: Person?
+
+    init (number: Int) {
         self.number = number
     }
-    //析构方法
-    deinit{
-        print("房子对象被炸毁")
+    deinit {
+        print("房子被炸毁")
     }
 }
 
 class Person {
-    var name:String
-    
+    var name: String
     var apartment:Apartment?
-    init (name:String) {
+
+    init (name: String) {
         self.name = name
     }
     deinit {
@@ -330,16 +322,9 @@ class Person {
     }
 }
 
-var person:Person? = Person(name: "Dan Dan")
-var apatment:Apartment? = Apartment(number: 1024)
+var person: Person? = Person(name: "Xiao Ming")
+var apatment: Apartment? = Apartment(number: 1024)
 person?.apartment = apatment
 apatment?.person = person
 person = nil
 apatment = nil
-
-
-
-
-
-
-
