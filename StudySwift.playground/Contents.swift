@@ -3,7 +3,7 @@
 import UIKit
 
 
-// MARK: hello swift
+// MARK: hello playground
 
 var str = "Hello, playground!"
 print(str)
@@ -19,52 +19,51 @@ print(sayHello("Hong Min"))
 func sayHelloWithoutParamters() -> String {
     return "hello !"
 }
+print(sayHelloWithoutParamters())
 
 func sayHelloWithoutReturnValues(personName: String){
     print("Hello, \(personName) !")
 }
 sayHelloWithoutReturnValues("Hong Min")
 
-func sayHelloWithoutParamtersWithoutReturnValues() {
+func sayHelloWithoutParamtersAndReturnValues() {
     print("hello !")
 }
+sayHelloWithoutParamtersAndReturnValues()
 
-func functionWithDefaultParameterValues(parameterWithDefault: Int = 12) {
-    print("\(parameterWithDefault)")
+func functionWithDefaultParameterValues(parameterWithDefaultValue: Int = 12) {
+    print("\(parameterWithDefaultValue)")
 }
 functionWithDefaultParameterValues()
 
-func functionWithVariadicParameters(var height:Int) {
-    height += 1
-    print("\(height)")
+func functionWithVariadicParameters(var count: Int) {
+    print("\(++count)")
 }
+var count = 10
 functionWithVariadicParameters(10)
+print("\(count)")
 
-//fuction with In-Out parameters
-func swapTwoNumber(inout a:Int, inout b:Int){
-    var temp = 0
-    temp = a
-    a = b
-    b = temp
+func swapTwoNumbersWithInOutParameters(inout a: Int, inout b: Int){
+    (a, b) = (b, a)
 }
-var a = 66; var b = 88
-swapTwoNumber(&a, b: &b)
+var (a, b) = (66, 88)
+swapTwoNumbersWithInOutParameters(&a, b: &b)
 print("a = \(a), b = \(b)")
 
-func nestedFunctions(judge:Bool, number:Int){
-    func addNumer(var value1:Int){
-        print(++value1)
+func nestedFunctions(judge: Bool, number: Int){
+    func addNumer(var value: Int){
+        print(++value)
     }
 
-    func subNumber(var value2:Int){
-        print(--value2)
+    func subNumber(var value: Int){
+        print(--value)
     }
     let funcName = judge ? addNumer : subNumber
 
     funcName(number)
 }
-
 nestedFunctions(false, number: 10)
+
 
 // MARK: Closures(闭包)
 
