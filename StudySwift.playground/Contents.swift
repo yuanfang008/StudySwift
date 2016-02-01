@@ -147,7 +147,7 @@ let someVideoMode = VideoModeClasses()
 class AudiCar {
     var carType: String
     var carColor: String
-    lazy var carNumber: Int = 8888
+    lazy var AudiCars: NSArray = { [] }()
     init(carType: String, carColor: String) {
         self.carType = carType
         self.carColor = carColor
