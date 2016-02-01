@@ -21,7 +21,7 @@ func sayHelloWithoutParamters() -> String {
 }
 print(sayHelloWithoutParamters())
 
-func sayHelloWithoutReturnValues(personName: String){
+func sayHelloWithoutReturnValues(personName: String) {
     print("Hello, \(personName) !")
 }
 sayHelloWithoutReturnValues("Hong Min")
@@ -40,26 +40,26 @@ func functionWithVariadicParameters(var count: Int) {
     print("\(++count)")
 }
 var count = 10
-functionWithVariadicParameters(10)
+functionWithVariadicParameters(count)
 print("\(count)")
 
-func swapTwoNumbersWithInOutParameters(inout a: Int, inout b: Int){
+func swapTwoNumbersWithInOutParameters(inout a: Int, inout b: Int) {
     (a, b) = (b, a)
 }
 var (a, b) = (66, 88)
 swapTwoNumbersWithInOutParameters(&a, b: &b)
 print("a = \(a), b = \(b)")
 
-func nestedFunctions(judge: Bool, number: Int){
-    func addNumer(var value: Int){
+func nestedFunctions(judge: Bool, number: Int) {
+    func addNumer(var value: Int) {
         print(++value)
     }
 
-    func subNumber(var value: Int){
+    func subNumber(var value: Int) {
         print(--value)
     }
-    let funcName = judge ? addNumer : subNumber
 
+    let funcName = judge ? addNumer : subNumber
     funcName(number)
 }
 nestedFunctions(false, number: 10)
