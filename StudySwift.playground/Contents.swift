@@ -65,41 +65,26 @@ func nestedFunctions(judge: Bool, number: Int) {
 nestedFunctions(false, number: 10)
 
 
-// MARK: Closures(闭包)
+// MARK: Closures
 
-//也叫匿名函数, 类似于OC中的block。是引用类型。
-var block = {(str:String)->() in
-    print(str)
+var sayHelloClosure = {(str: String) -> () in
+    print("hello, ");
+    print("\(str)")
 }
-block("123444")
+sayHelloClosure("closures")
 
 let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
-
 func backwards(s1: String, s2: String) -> Bool {
     return s1 > s2
 }
-//1. 调用sort方法
 var reversed = names.sort(backwards)
-//2. 排序闭包函数， 并将其作为sort方法的参数传入
-reversed = names.sort({ (s1: String, s2: String) -> Bool in
-    return s1 > s2
-})
-//3. 闭包的函数体部分如此短，可以将其改写成一行代码
 reversed = names.sort({ (s1: String, s2: String) -> Bool in return s1 > s2 })
-//4. Swift可以推断闭包函数参数和返回值的类型, 返回箭头（->）和围绕在参数周围的括号也可以被省略
 reversed = names.sort({ s1, s2 in return s1 > s2 })
-//5. 单行表达式闭包可以通过省略return关键字来隐式返回单行表达式的结果
 reversed = names.sort({ s1, s2 in s1 > s2 })
-//6. Swift自动为内联闭包提供了参数名称缩写功能，您可以直接通过$0，$1，$2来顺序调用闭包的参数，以此类推。
 reversed = names.sort({ $0 > $1 })
-//7. Swift的String类型定义了关于大于号（>）的字符串实现,因此，可以简单地传递一个大于号，Swift 可以自动推断出您想使用大于号的字符串函数实现
-reversed = names.sort(>)
-
-
-//Trailing Closures(增强函数可读性)
 reversed = names.sort() { $0 > $1 }
-//如果函数只需要闭包表达式一个参数，当您使用尾随闭包时，您甚至可以把()省略掉:
 reversed = names.sort { $0 > $1 }
+
 
 // MARK: Enumerations
 
