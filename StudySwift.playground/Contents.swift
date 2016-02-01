@@ -144,76 +144,57 @@ let someVideoMode = VideoModeClasses()
 
 // MARK: Properties
 
-struct Animal {
-    var typeName:String
-    var isFlying:Bool
-    lazy var isSpeaking:Bool = true
-}
-
-let tiger = Animal(typeName: "cat", isFlying: false, isSpeaking: false)
-
-print("tiger.typeName = \(tiger.typeName), tiger.isFlying = \(tiger.isFlying)")
-
-
 class AudiCar {
-    var carType:String
-    var carColor:String
-    lazy var carNumber:Int = 8888
-    init(carType:String, carColor:String) {
+    var carType: String
+    var carColor: String
+    lazy var carNumber: Int = 8888
+    init(carType: String, carColor: String) {
         self.carType = carType
         self.carColor = carColor
     }
 }
-
 let audiCar = AudiCar(carType: "A6L", carColor: "black")
-
 print("audiCar.carType = \(audiCar.carType), audiCar.carColor = \(audiCar.carColor)")
 
-
-class PrettyPerson {
-    //存储属性
+class PrettyGirl {
+    // Stored Properties
     var name = "Hong Min"
-    //计算属性
-    var description:String {
-        get{
+
+    // Computed Properties
+    var description: String {
+        get {
             return name + " Pretty"
-        }set{
-            //newValue代表所有将来所赋的新值
+        }
+        set {
             name = newValue
         }
     }
-    //只读属性:属于计算属性, 没有set赋值方法,声明只读属性时直接写一个return即可
-    var sex:String {
-        return "woman"
+
+    // Read-Only Computed Properties
+    var gender: String {
+        return "female"
     }
 }
-
-let girl = PrettyPerson()
+let girl = PrettyGirl()
 print("girl.description = \(girl.description)")
-
 girl.description = "Guo Chen Guang"
 print("girl.description = \(girl.description)")
+print("girl.gender = \(girl.gender)")
 
-
-//拓展.属性观察器
 class BenzCar {
     var carType = "R350"
-    var carColor = "Black"
-    var carNumber:Int = 8888 {
-        //将要变化
+    var carNumber: Int = 8888 {
         willSet {
             print("newValue = \(newValue)")
         }
-        //已经变化
         didSet {
             print("oldValue = \(oldValue)")
         }
     }
 }
-
 var benzCar = BenzCar()
-//结合属性观察器完成对属性的监听
 benzCar.carNumber = 1234
+
 
 // MARK: Methods
 
